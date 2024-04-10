@@ -1,0 +1,160 @@
+/* VARIABLES */
+
+:root {
+    --main-bg-color: black;
+    --main-color: rgb(245, 243, 241);
+    --app-bg: black;
+    --bar-bg: rgb(110, 109, 109);
+    --bar-color: rgb(241, 241, 245);
+    --blackcolor: black;
+    --redcolor:rgb(218, 32, 32);
+    --orangecolor: rgb(224, 145, 35);
+    --greencolor: rgb(20, 107, 55);
+    --yellowcolor: rgb(244, 252, 99);
+    --bluecolor:rgb(48, 107, 217);
+    --violetcolor:rgb(58, 39, 96);
+    --transition-time:0.5s;
+
+}
+
+/*   var(--botton-color)    */
+@font-face {
+    font-family: 'thick';
+    src: url('SuperEasy-ZVAr3.ttf');
+}
+
+/* CUERPO */
+body {
+    background-color: var(--main-bg-color);
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-attachment: fixed;
+}
+
+body,
+input,
+select,
+textarea {
+    font-family: "Merriweather", Georgia, serif;
+    font-size: 1.0em;
+    color:#999;
+}
+
+
+/* APLICACION */
+#app {
+    background: var(--app-bg);
+    width: 90%;
+    min-width: 200px;
+    margin: 0px auto;
+}
+
+/* CONTENEDOR OPCIONES DESPUES DE FICHA */
+.card {
+    font-family: 'Heebo';
+    height: 20em;
+    width: 12em;
+    font-size: 1.5em;
+    border-radius: 1em;
+    padding: 0.1em;
+    margin: 1em auto;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    box-shadow: 0 0 5em -1em black;
+    transition: all, var(--transition-time);
+    position: relative;
+    overflow: hidden;
+    border: 10px solid #ccc;
+}
+
+.card div {
+    width: 100%;
+}
+
+.card p {
+    text-align: center;
+    font-size: 0.75em;
+    font-family: 'Open Sans';
+    line-height: 2em;
+}
+
+.card:hover {
+    opacity: 0.9;
+}
+
+.linea {
+    height: 1px;
+    background-color: black;
+}
+
+.bgazul {
+    background-color: var(--bluecolor);
+}
+
+.txtazul {
+    color: var(--bluecolor);
+}
+
+.bgnaranja {
+    background-color: var(--orangecolor );
+}
+
+.txtnaranja {
+    color: var(--orangecolor );
+}
+
+.bgamarillo {
+    background-color: var(--yellowcolor);
+}
+
+.txtamarillo {
+    color: var(--yellowcolor);
+}
+
+.bgverde {
+    background-color: var(--greencolor);
+}
+
+.txtverde {
+    color: var(--greencolor);
+}
+
+.bgvioleta {
+    background-color: var(--violetcolor);
+}
+
+.txtvioleta {
+    color: var(--violetcolor);
+}
+
+.txtnegro {
+    color: var(--blackcolor);
+}
+
+.bgrojo {
+    background-color: var(--redcolor);
+}
+
+.txtrojo {
+    color: var(--redcolor);
+}
+
+
+#texto {
+   /*  font-family: 'thick'; */
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size:2em;
+    margin: 0px;
+    transform: rotate(-90deg);
+}
+
+.navbar a{
+    text-decoration: none;
+    color:#ccc;
+}
