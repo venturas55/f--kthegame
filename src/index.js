@@ -1,4 +1,4 @@
-import SocketIO from "socket.io";
+
 import { engine } from 'express-handlebars';
 import express from 'express';
 import * as path from 'path';  
@@ -7,6 +7,8 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 import {indexRouter} from './routes/routes.js';
 import { corsMiddleware } from './middlewares/cors.js';
+
+import { socketIO } from './controllers/socketio.js';
 
 import handlebars from './lib/handlebars.js';
 

@@ -2,41 +2,24 @@
 // Definir los conjuntos de valores para cada atributo
 const bgColors = ["azul", "rojo", "naranja", "verde", "amarillo", "violeta"];
 const textColors = ["azul", "rojo", "naranja", "verde", "amarillo", "negro"];
-const texts = ["azul", "rojo", "naranja", "verde", "amarillo", "negro", "violeta","puta", "mierda", "polla", "coño", "cabron", "joder"];
+const texts = ["azul", "rojo", "naranja", "verde", "amarillo", "negro", "violeta", "puta", "mierda", "polla", "coño", "cabron", "joder"];
 
 // Función para generar permutaciones únicas sin repetición
 function generateUniquePermutations(arrays) {
-    const result = [];
-
-    function permute(index, current) {
-        if (index === arrays.length) {
-            result.push(current.slice()); // Guardar copia de la permutación actual
-            return;
-        }
-
-        const used = new Set(); // Conjunto para rastrear los valores usados en este nivel
-        for (const value of arrays[index]) {
-            if (!used.has(value)) {
-                current.push(value); // Agregar el valor actual a la permutación
-                used.add(value);
-                permute(index + 1, current); // Recursión para el siguiente nivel
-                current.pop(); // Retroceder para probar otras combinaciones
+    console.log(arrays[0][1]);
+    let items=[];
+    for (var i = 0; i < arrays[0].length; i++) {
+        for (var j = 0; j < arrays[1].length; j++) {
+            for (var k = 0; k < arrays[2].length; k++) {
+                if(arrays[0][i]!=arrays[1][j] && arrays[1][j]!=arrays[2][k] && arrays[2][k]!=arrays[0][i]) {
+                    //console.log(arrays[0][i], arrays[1][j], arrays[2][k]);
+                    items.push({bg_color:arrays[0][i],color:arrays[1][j],text:arrays[2][k]});
+                }
             }
         }
     }
-
-    permute(0, []); // Llamar a la función de permute inicialmente con index 0 y una permutación vacía
-    return result;
+    return items;
 }
-
-// Generar todas las permutaciones únicas de cartas
-const permutations = generateUniquePermutations([bgColors, textColors, texts]);
-
-// Convertir las permutaciones en objetos de cartas
-var cartas = permutations.map(([bg_color, color, text]) => ({ bg_color, color, text }));
-var shownCards=[];
-// Convertir el arreglo de cartas a formato JSON
-//const cartasJSON = JSON.stringify({ cartas: cartas }, null, 2);
 
 function nextCard() {
     //console.log(words.length);
@@ -54,15 +37,18 @@ function nextCard() {
 
 }
 
-// Imprimir el JSON resultante
-console.log(cartas);
-
-function printCard(carta){
-    document.getElementById("texto").classList.remove("txtazul","txtrojo","txtnaranja","txtamarillo","txtverde","txtnegro");
-    document.getElementById("tarjeta").classList.remove("bgazul","bgrojo","bgnaranja","bgamarillo","bgverde","bgvioleta");
+function printCard(carta) {
+    document.getElementById("texto").classList.remove("txtazul", "txtrojo", "txtnaranja", "txtamarillo", "txtverde", "txtnegro");
+    document.getElementById("tarjeta").classList.remove("bgazul", "bgrojo", "bgnaranja", "bgamarillo", "bgverde", "bgvioleta");
 
     document.getElementById("texto").innerHTML = carta.text;
-    document.getElementById("texto").classList.add("txt"+carta.color);
-    document.getElementById("tarjeta").classList.add("bg"+carta.bg_color);  
+    document.getElementById("texto").classList.add("txt" + carta.color);
+    document.getElementById("tarjeta").classList.add("bg" + carta.bg_color);
 }
+
+// Generar todas las permutaciones únicas de cartas
+const cartas = generateUniquePermutations([bgColors, textColors, texts]);
+
+var shownCards = [];
+
 

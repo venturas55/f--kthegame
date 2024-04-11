@@ -9,11 +9,11 @@
     --blackcolor: black;
     --redcolor:rgb(218, 32, 32);
     --orangecolor: rgb(224, 145, 35);
-    --greencolor: rgb(20, 107, 55);
+    --greencolor: rgb(17, 139, 66);
     --yellowcolor: rgb(244, 252, 99);
-    --bluecolor:rgb(48, 107, 217);
-    --violetcolor:rgb(58, 39, 96);
-    --transition-time:0.5s;
+    --bluecolor:rgb(70, 131, 245);
+    --violetcolor:rgb(74, 39, 143);
+    --transition-time:0.25s;
 
 }
 
@@ -84,7 +84,7 @@ textarea {
 }
 
 .card:hover {
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 .linea {
@@ -149,7 +149,7 @@ textarea {
    /*  font-family: 'thick'; */
     text-transform: uppercase;
     font-weight: bolder;
-    font-size:2em;
+    font-size:1.9em;
     margin: 0px;
     transform: rotate(-90deg);
 }
