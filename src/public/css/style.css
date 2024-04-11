@@ -54,9 +54,8 @@ textarea {
 /* CONTENEDOR OPCIONES DESPUES DE FICHA */
 .card {
     font-family: 'Heebo';
-    height: 20em;
-    width: 12em;
-    font-size: 1.5em;
+    width: 600px;
+    height: 300px;
     border-radius: 1em;
     padding: 0.1em;
     margin: 1em auto;
@@ -149,9 +148,9 @@ textarea {
    /*  font-family: 'thick'; */
     text-transform: uppercase;
     font-weight: bolder;
-    font-size:1.9em;
-    margin: 0px;
-    transform: rotate(-90deg);
+    font-size:5em;
+    text-align: center;
+
 }
 
 .navbar a{

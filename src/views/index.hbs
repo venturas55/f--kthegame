@@ -1,9 +1,16 @@
-<div id="tablero">
-
+<div id="tablero ">
+    <div class="text-center">
+    <button id="btnReady" type="button" class="btn btn-primary mt-4" onclick="playerReady()"> Ready  </button></div>
     <div class="card-grid-space">
+        <div id="tarjeta" class="card" onclick="launchError()">
+            <div class="texto">
+                <h1 id="texto">F**K the GAME</h1>
+            </div>
+        </div>
+
         <div id="tarjeta" class="card" onclick="nextCard()">
             <div class="texto">
-                <p id="texto">F**K the GAME</p>
+                <h1 id="texto">F**K the GAME</h1>
             </div>
         </div>
     </div>
@@ -16,7 +23,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Instrucciones</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

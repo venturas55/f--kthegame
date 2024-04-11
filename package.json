@@ -16,7 +16,7 @@
     "express-handlebars": "^7.1.2",
     "handlebars": "^4.7.8",
     "path": "^0.12.7",
-    "socketio": "^1.0.0",
+    "socket.io": "^4.7.5",
     "url": "^0.11.3"
   },
   "devDependencies": {
