@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>F**K the GAME</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">F**K THE GAME</a>
+            <button id="btnReady" type="button" class="btn btn-primary" onclick="createGame()"> Crear Partida </button>
+            <button id="btnReady" type="button" class="btn btn-primary" onclick="joinGame()"> Unirse a Partida </button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Instrucciones
+            </button>
+        </div>
+    </nav>
+    <div id="tablero ">
+        <div class="text-center">
+            <button id="btnReady" type="button" class="btn btn-primary mt-4" onclick="playerReady()"> Ready </button>
+        </div>
+        <div class="card-grid-space">
+            <div id="tarjeta" class="card" onclick="launchError()">
+                <div class="texto">
+                    <h1 id="texto">F**K the GAME</h1>
+                </div>
+            </div>
+
+            <div id="monton" class="card" onclick="nextCard()">
+                <div class="texto">
+                    <h1 id="texto">F**K the GAME</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal modal-lg fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Instrucciones</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="/img/instrucciones.jpeg" alt="" class="w-100">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    {{!-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav
+        class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark footer d-flex justify-content-between align-items-center mb-0 mt-5 py-0 px-2">
+        <div class="w-100">
+            <span>F**K the GAME</span>
+            <a rel="license" class="d-none d-sm-inline" target="_blank"
+                href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons License" src="/img/ccby.png" />
+            </a><span class="d-none d-sm-inline">Autor: </span> <a class="d-none d-sm-inline" target="_blank"
+                href="http://adriandeharo.es">Adrian de Haro </a>
+            <span class="copyleft"> &copy; </span>
+            <span class="d-none d-lg-inline"> bajo licencia</span> <a class="d-none d-md-inline" rel="license"
+                target="_blank" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons.</a>
+
+            <span class="float-right mb-0 ">
+                <span class="d-none d-xl-inline"> Ultima actualizacion: </span><span class="d-none d-md-inline">
+                    09/04/2024</span></span>
+        </div>
+    </nav>
+    <script type="text/javascript" src="./bootstrap.min.js"></script>
+    <script type="text/javascript" src="./socket.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+
+</body>
+
+</html>

@@ -4,13 +4,13 @@ const helpers = {};
 //FUNCION PARA BARAJAR UN ARRAY
 helpers.shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
     return array;
-  }
+}
 
 // Función para generar permutaciones únicas sin repetición
 helpers.generateUniquePermutations = (arrays) => {
@@ -33,14 +33,14 @@ helpers.nextCard = (cartas) => {
         var currentIndex = Math.floor(Math.random() * cartas.length);
         let currentCard = cartas.splice(currentIndex, 1);
         //console.log(currentCard);
-        return(currentCard);
+        return (currentCard);
     } else {
         document.getElementById('current-card').textContent = "SO...";
         alert("Se acabo la baraja");
     }
 }
 
-helpers.cartasShown=[];
+helpers.cartasShown = [];
 
 
 //helpers.cartas=cartas;

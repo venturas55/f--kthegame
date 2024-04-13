@@ -49,35 +49,66 @@ const bgColors = ["azul", "rojo", "naranja", "verde", "amarillo", "violeta"];
 const textColors = ["azul", "rojo", "naranja", "verde", "amarillo", "negro"];
 const texts = ["azul", "rojo", "naranja", "verde", "amarillo", "negro", "violeta", "puta", "mierda", "polla", "coño", "cabron", "joder"];
 var shownCards = [];
-var cartas = funciones.generateUniquePermutations([bgColors, textColors, texts]);
-cartas = funciones.shuffleArray(cartas);
+var cartas = [];
+var turno = 0;
 var jugadores = [];
 var numConexiones = 0;
+var partidas = [];
+
+function nextPlayer() {
+  //variables globales del index.js   jugadores y turno
+  turno++;
+  if (turno == jugadores.length) {
+      turno = 0;
+  }
+}
 
 
 io.on('connection', (socket) => {
   numConexiones++;
-  console.log('connection:', socket.id, "jugadores totales:", numConexiones);
+  console.log('connection:', socket.id, "Conexiones totales:", numConexiones);
 
   socket.on('nextCard', (socket) => {
     const [nextCard] = funciones.nextCard(cartas);
     shownCards.push(nextCard);
-    console.log('Envio carta:', nextCard,"quedan",cartas.length);
+    console.log('Envio carta:', nextCard, "quedan", cartas.length);
     io.emit('nextCardSentFromServer', nextCard);
   });
 
-  socket.on('playerReady', () => {
-    console.log('Player ready:',socket.id);
-    jugadores.push(socket);
-    console.log('Jugadores listos:',jugadores.length);
+  socket.on('CreateGame', () => {
+    console.log('Create Game:', socket.id);
+    var game = { creator_id: socket.id, gameCode: Math.random().toString(16).slice(9) }
+    console.log(game.gameCode);
+    partidas.push(game);
   });
 
-});
+  socket.on('playerReady', () => {
+    console.log('Player ready:', socket.id);
+    jugadores.push(socket);
+    console.log('Jugadores listos:', jugadores.length);
+  });
 
-/* io.on("disconnect", (reason) => {
-  numConexiones--;
-  console.log('connection:', reason, "jugadores totales:", numConexiones);
-}); */
+  socket.on('startGame', () => {
+    console.log('Player who started:', socket.id);
+    console.log('Jugadores en la partida:', jugadores.length);
+    cartas = funciones.generateUniquePermutations([bgColors, textColors, texts]);
+    cartas = funciones.shuffleArray(cartas);
+    //TODO: Division exacta en funcion del numero de players. COMO HAY MUCHAS CARTAS REPARTO 20 A CADA JUGADOR DIRECTAMENTE. //TODO:
+    jugadores.forEach(player => {
+      io.to(player.id).emit("ServerSendCards", cartas.splice(0, 20));
+    });
+    io.to(jugadores[turno].id).emit("suTurno");
+  });
+
+  socket.on('playerPlayCard', (carta) => {
+    shownCards.push(carta);
+    nextPlayer();
+    io.to(jugadores[turno].id).emit("suTurno");
+    io.emit('nextCardSentFromServer', carta);
+  });
+
+
+});
 
 //Starting
 server.listen(app.get('port'), () => {

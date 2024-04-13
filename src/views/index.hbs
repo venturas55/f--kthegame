@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        <div id="tarjeta" class="card" onclick="nextCard()">
+        <div id="monton" class="card" onclick="playCard()">
             <div class="texto">
                 <h1 id="texto">F**K the GAME</h1>
             </div>
@@ -28,6 +28,26 @@
             </div>
             <div class="modal-body">
                 <img src="/img/instrucciones.jpeg" alt="" class="w-100">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                {{!-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal modal-lg fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Instrucciones</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="gameCode">Codigo de la partida</label>
+               <input type="text" name="gameCode">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
